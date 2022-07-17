@@ -2,11 +2,11 @@ import { Component } from "react";
 import Brand from "./Brand";
 import ShoppingCart from "./ShoppingCart";
 
-const styles={
-    navbar:{
+const styles = {
+    navbar: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems:'center',
+        alignItems: 'center',
         height: '100px',
         justifyContent: 'space-between',
         position: 'relative',
@@ -16,10 +16,13 @@ const styles={
 }
 class Navbar extends Component {
     render() {
+
+        const { shoppingCart } = this.props;
+
         return (
             <nav style={styles.navbar}>
-                <p><Brand /></p>
-                <p><ShoppingCart /></p>
+                <Brand />
+                <ShoppingCart shoppingCart={shoppingCart} />
             </nav>
         )
     }

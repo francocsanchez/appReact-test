@@ -19,10 +19,12 @@ const styles = {
 
 class ShoppingCart extends Component {
     render() {
+        const { shoppingCart } = this.props;
+        const countProducts = shoppingCart.reduce((acc, x) => acc + x.count, 0);
         return (
             <div>
                 <span style={styles.bubble}>
-                    <BubbleAlert />
+                    {countProducts !== 0 ? <BubbleAlert value={countProducts} /> : null}
                 </span>
                 <button style={styles.shoppingCart}>
                     Carro
