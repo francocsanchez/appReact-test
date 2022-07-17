@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Layout from './componets/Layout';
 import Products from './componets/Products';
 
 class App extends Component {
@@ -13,12 +14,14 @@ class App extends Component {
 
   render() {
     return (
+      <Layout>
       <div>
         <Products
           products={this.state.products}
           agregarItems={() => console.log('Agregando items')}
         />
       </div>
+      </Layout>
     );
   }
 }
