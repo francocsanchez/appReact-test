@@ -12,7 +12,8 @@ class App extends Component {
       { name: 'Arbejas', price: 2500, img: './products/arbejas.jpeg' },
       { name: 'Lechuga', price: 2000, img: './products/lechuga.jpeg' },
     ],
-    shoppingCart: []
+    shoppingCart: [],
+    details: false
   }
 
   agregarItems = (product) => {
@@ -35,10 +36,22 @@ class App extends Component {
     })
   }
 
+  viewDetails = () => {
+    if (this.state.shoppingCart.length === 0) {
+      return
+    }
+    this.setState({ details: !this.state.details })
+  }
+
   render() {
+    const { details } = this.state;
     return (
       <div>
-        <Navbar shoppingCart={this.state.shoppingCart} />
+        <Navbar
+          shoppingCart={this.state.shoppingCart}
+          details={details}
+          viewDetails={this.viewDetails}
+        />
         <Layout>
           <Title />
           <Products
